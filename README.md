@@ -6,8 +6,8 @@ ini adalah project php + docker untuk backend portofolio saya yang menerapkan si
 - comment community
 - tempat mengirimkan pesan ke email saya
 
-### require
-
+### required
+- anda harus menginstall docker terleboh dahulu
 
 ## cara installasi
 
