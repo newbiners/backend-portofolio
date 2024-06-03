@@ -1,0 +1,66 @@
+# version: '3.8'
+
+# services:
+#   db:
+#     image: mariadb
+#     container_name: mariadb
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: mydb
+#       MYSQL_USER: myuser
+#       MYSQL_PASSWORD: mypassword
+#     volumes:
+#       - ./mysql:/var/lib/mysql
+
+#   php:
+#     build: .
+#     container_name: php8.2-apache
+#     volumes:
+#       - ./www:/var/www/html
+#     ports:
+#       - "8081:80"  # Menggunakan port 8081 pada host, mengarah ke port 80 pada kontainer
+#     depends_on:
+#       - db
+#     env_file:
+#       - .env
+
+#   adminer:
+#     image: adminer
+#     container_name: adminer
+#     ports:
+#       - "8080:8080"
+#     depends_on:
+#       - db
+version: '3.8'
+
+services:
+  db:
+    image: mariadb
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  php:
+    build: .
+    container_name: php8.2-apache
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - "8081:80"  # Menggunakan port 8081 pada host, mengarah ke port 80 pada kontainer
+    depends_on:
+      - db
+    env_file:
+      - .env  # File .env untuk variabel environment
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
