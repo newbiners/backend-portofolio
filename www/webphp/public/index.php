@@ -20,6 +20,5 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'options') {
     exit();
 }
 
-
 $app = new App(); 
 
